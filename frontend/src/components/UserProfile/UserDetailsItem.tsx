@@ -1,4 +1,4 @@
-import "./userdetailsitem.css"
+import "./userdetailsitem.css";
 
 interface UserDetailsItemProps {
   title: string;

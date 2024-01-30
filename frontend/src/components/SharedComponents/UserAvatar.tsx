@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import "./useravatar.css"
+import { useState } from "react";
+import "./useravatar.css";
 
 interface UserAvatarProps {
   avatarSource?: string;
@@ -14,7 +14,12 @@ const UserAvatar: React.FC<UserAvatarProps> = ({ avatarSource }) => {
 
   return (
     <>
-      <img className='user-avatar' src={imageSource} onError={setDefaultSource} alt="User Avatar" width="100px"/>
+      <img
+        className="user-avatar"
+        src={imageSource}
+        onError={setDefaultSource}
+        alt="User Avatar"
+      />
     </>
   );
 };

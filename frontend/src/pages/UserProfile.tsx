@@ -18,14 +18,17 @@ const UserProfile = () => {
     async function fetchUser() {
       try {
         const response = await fetch(`http://localhost:3000/users/${id}`);
+        if (response.status === 404) {
+          throw new Error("User not found");
+        }
         if (!response.ok) {
-          throw new Error("Failed to fetch user");
+          throw new Error("An error occurred while fetching the user data");
         }
         const userData: User = await response.json();
         setUser(userData);
       } catch (error) {
         console.error("Error fetching user data:", error);
-        setError("User not found");
+        setError((error as Error).message);
       } finally {
         setLoading(false);
       }
@@ -43,9 +46,12 @@ const UserProfile = () => {
   }
 
   if (error) {
-    return <div className="error-container">
-      <ErrorOutline fontSize="inherit"/>
-      <div>{error}</div></div>;
+    return (
+      <div className="error-container">
+        <ErrorOutline fontSize="inherit" />
+        <div>{error}</div>
+      </div>
+    );
   }
 
   if (user) {

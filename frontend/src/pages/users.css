@@ -25,3 +25,31 @@
     width: calc(20% - 10px);
     margin: 5px;
   }
+
+@media screen and (max-width: 1200px) {
+    .user-list-item {
+      width: calc(25% - 10px);
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .user-list-item {
+      width: calc(33.33% - 10px);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .user-list-item {
+      width: calc(50% - 10px);
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .user-list-item {
+      width: calc(100% - 10px);
+    }
+    .user-list {
+        width: 80%;
+        margin: calc(64px - 2% + 10px) auto 0 auto;
+    }
+  }

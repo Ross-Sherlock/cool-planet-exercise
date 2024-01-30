@@ -17,22 +17,19 @@ const UserCard: React.FC<UserCardProps> = ({
 }) => {
   return (
     <div className="user-card">
-      <UserAvatar avatarSource={avatar}/>
-      {/* <img className="user-avatar" src={avatar} alt="User Avatar" /> */}
+      <UserAvatar avatarSource={avatar} />
       <h1>
         {firstName} {lastName}
       </h1>
       <div className="verified-container">
-      {verified ? (
-        <>
-        <p className="verif-p">
-          Verified
-        </p>
-        <VerifiedIcon style={{fill: "green"}}/>
-        </>
-      ) : (
-        <p className="verif-p">Unverified</p>
-      )}
+        {verified ? (
+          <>
+            <p className="verif-p">Verified</p>
+            <VerifiedIcon style={{ fill: "green" }} />
+          </>
+        ) : (
+          <p className="verif-p">Unverified</p>
+        )}
       </div>
     </div>
   );

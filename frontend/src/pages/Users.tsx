@@ -3,10 +3,11 @@ import User from "../../../shared-types/User";
 import Spinner from "../components/SharedComponents/Spinner";
 import "./users.css";
 import UserPreviewCard from "../components/UserList/UserPreviewCard";
+import UserPreview from "../../../shared-types/UserPreview";
 
 const Users = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [users, setUsers] = useState<User[] | null>(null);
+  const [users, setUsers] = useState<UserPreview[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -16,11 +17,11 @@ const Users = () => {
         if (!response.ok) {
           throw new Error("Failed to fetch users");
         }
-        const userData: User[] = await response.json();
+        const userData: UserPreview[] = await response.json();
         setUsers(userData);
       } catch (error) {
         console.error("Error fetching user data:", error);
-        setError("Error fetching users");
+        setError((error as Error).message);
       } finally {
         setLoading(false);
       }
@@ -46,7 +47,7 @@ const Users = () => {
                 .sort((a, b) => a.first_name.localeCompare(b.first_name))
                 .map((user) => (
                   <li key={user.id} className="user-list-item">
-                      <UserPreviewCard user={user} />
+                    <UserPreviewCard user={user} />
                   </li>
                 ))
             : "No users found"}

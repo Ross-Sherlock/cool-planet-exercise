@@ -1,6 +1,7 @@
-export default interface UserPreview {
-    id: number;
-    avatar?: string;
-    first_name: string;
-    last_name: string;
-  }
+import User from "./User";
+
+export default interface UserPreview
+  extends Omit<
+    User,
+    "email" | "emailVerified" | "dob" | "company" | "skills"
+  > {}
