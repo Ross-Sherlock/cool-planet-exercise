@@ -1,0 +1,9 @@
+.user-details-card {
+    background-color: white;
+    border-radius: 10px;
+    padding:20px;
+}
+
+.user-details-card .user-details-item:last-child {
+    border-bottom: none;
+}

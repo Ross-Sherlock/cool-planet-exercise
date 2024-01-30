@@ -1,10 +1,14 @@
 import express, { Request, Response } from "express";
-import User from "./User";
+import User from "../../shared-types/User";
 import fs from "fs";
+import cors from "cors";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
+
+// TODO: Seperate out into layers --- repo, service, controller
 let users: User[] = [];
 
 // Read mock user data

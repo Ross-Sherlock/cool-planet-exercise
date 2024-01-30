@@ -1,0 +1,18 @@
+.user-details-item {
+    display: flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.user-details-title {
+    font-weight: bold;
+    color: #1a202c;
+}
+
+.user-value {
+    color:#837882;
+}

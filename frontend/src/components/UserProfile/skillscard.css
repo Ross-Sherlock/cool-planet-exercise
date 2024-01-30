@@ -1,0 +1,29 @@
+.skills-card {
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.skills-heading {
+    text-align: center;
+    color: #1a202c;
+}
+
+.skill-item {
+    padding: 5px;
+    color:#837882;
+    overflow-wrap: break-word;
+    white-space: normal;
+    display: flex;
+    justify-content: space-between;
+}
+
+.skill-index {
+    color: #1a202c;
+    font-weight: bold;
+}
+
+.skill-item * {
+    overflow-wrap: break-word;
+}

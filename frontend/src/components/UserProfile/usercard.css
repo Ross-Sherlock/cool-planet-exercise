@@ -1,0 +1,24 @@
+.user-card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.user-card h1 {
+    font-size: 1.4rem;
+    padding: 8px;
+    margin: 0;
+    color: #1a202c;
+}
+
+.verified-container {
+    display: flex;
+    align-items: center;
+}
+
+.verif-p {
+    padding: 10px;
+    margin: 0;
+}

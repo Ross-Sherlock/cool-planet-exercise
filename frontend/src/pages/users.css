@@ -1,0 +1,27 @@
+.spinner-container {
+    height: 100%;
+    width: 100%;
+}
+
+.user-list {
+    margin-top: calc(64px - 2% + 10px);
+    font-size: 20px;
+    width: 100%;
+}
+
+.user-list-item {
+    padding: 5px;
+}
+
+.user-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+  }
+  
+  .user-list-item {
+    width: calc(20% - 10px);
+    margin: 5px;
+  }
