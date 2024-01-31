@@ -7,12 +7,10 @@ interface UserDetailsItemProps {
 
 const UserDetailsItem: React.FC<UserDetailsItemProps> = ({ title, value }) => {
   return (
-    <>
       <div className="user-details-item">
         <div className="user-details-title">{title}</div>
         <div className="user-value">{value}</div>
       </div>
-    </>
   );
 };
 

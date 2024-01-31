@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
-    <>
       <nav className="navbar">
         <div className="nav-items">
           <div className="logo">
@@ -20,7 +19,6 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
       </nav>
-    </>
   );
 };
 

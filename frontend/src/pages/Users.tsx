@@ -1,45 +1,40 @@
-import { useEffect, useState } from "react";
-import User from "../../../shared-types/User";
 import Spinner from "../components/SharedComponents/Spinner";
 import "./users.css";
 import UserPreviewCard from "../components/UserList/UserPreviewCard";
-import UserPreview from "../../../shared-types/UserPreview";
+import { useMachine } from "@xstate/react";
+import { usersMachine } from "../state-machines/UsersMachine";
+import { ErrorOutline } from "@mui/icons-material";
+import { Button } from "@mui/material";
 
 const Users = () => {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [users, setUsers] = useState<UserPreview[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [state, send] = useMachine(usersMachine);
 
-  useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const response = await fetch("http://localhost:3000/users");
-        if (!response.ok) {
-          throw new Error("Failed to fetch users");
-        }
-        const userData: UserPreview[] = await response.json();
-        setUsers(userData);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        setError((error as Error).message);
-      } finally {
-        setLoading(false);
-      }
-    }
+  const { users, errorMessage: error } = state.context;
 
-    fetchUsers();
-  }, []);
+  const retryFetch = () => {
+    send("RETRY");
+  };
 
-  if (loading)
+  if (state.matches("loading"))
     return (
       <div className="spinner-container">
         <Spinner />
       </div>
     );
-  if (error) return <div>Error: {error}</div>;
+
+  if (state.matches("failure")) {
+    return (
+      <div className="error-container">
+        <ErrorOutline fontSize="inherit" />
+        <div>{error?.toString()}</div>
+        <Button variant="outlined" onClick={retryFetch}>
+          Retry
+        </Button>
+      </div>
+    );
+  }
 
   return (
-    <>
       <div className="user-list">
         <ul>
           {users
@@ -53,7 +48,6 @@ const Users = () => {
             : "No users found"}
         </ul>
       </div>
-    </>
   );
 };
 

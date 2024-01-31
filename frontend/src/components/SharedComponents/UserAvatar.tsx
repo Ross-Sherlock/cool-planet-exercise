@@ -13,14 +13,12 @@ const UserAvatar: React.FC<UserAvatarProps> = ({ avatarSource }) => {
   };
 
   return (
-    <>
       <img
         className="user-avatar"
         src={imageSource}
         onError={setDefaultSource}
         alt="User Avatar"
       />
-    </>
   );
 };
 
