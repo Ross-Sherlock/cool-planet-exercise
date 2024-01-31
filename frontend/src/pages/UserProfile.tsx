@@ -56,7 +56,6 @@ const UserProfile = () => {
 
   if (user) {
     return (
-      <>
         <div className="profile-container">
           <div className="left-pane">
             <UserCard
@@ -77,7 +76,6 @@ const UserProfile = () => {
             />
           </div>
         </div>
-      </>
     );
   }
 

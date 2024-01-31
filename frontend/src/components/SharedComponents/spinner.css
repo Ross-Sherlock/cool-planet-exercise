@@ -1,6 +1,6 @@
 .spinner-container {
   text-align: center;
-  margin-top: 5%;
+  margin-top: calc(64px - 2% + 10px)
 }
 
 .lds-dual-ring {

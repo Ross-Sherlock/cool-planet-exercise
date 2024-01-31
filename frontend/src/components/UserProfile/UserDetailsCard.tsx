@@ -17,7 +17,6 @@ const UserDetailsCard: React.FC<UserDetailsProps> = ({
   department,
 }) => {
   return (
-    <>
       <div className="user-details-card">
         <UserDetailsItem key="id" title="ID" value={id}/>
         <UserDetailsItem key="email" title="Email" value={email}/>
@@ -25,7 +24,6 @@ const UserDetailsCard: React.FC<UserDetailsProps> = ({
         <UserDetailsItem key="company" title="Company" value={company}/>
         <UserDetailsItem key="dept" title="Department" value={department}/>
       </div>
-    </>
   );
 };
 

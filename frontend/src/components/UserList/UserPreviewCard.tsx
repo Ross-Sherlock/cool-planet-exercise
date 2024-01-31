@@ -9,7 +9,6 @@ interface UserPreviewCardProps {
 
 const UserPreviewCard: React.FC<UserPreviewCardProps> = ({ user }) => {
   return (
-    <>
       <div className="user-preview-card">
         <Link to={`/users/${user.id}`}>
           <UserAvatar avatarSource={user.avatar} key={user.id} />
@@ -18,7 +17,6 @@ const UserPreviewCard: React.FC<UserPreviewCardProps> = ({ user }) => {
           </div>
         </Link>
       </div>
-    </>
   );
 };
 

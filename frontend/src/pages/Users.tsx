@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import User from "../../../shared-types/User";
 import Spinner from "../components/SharedComponents/Spinner";
 import "./users.css";
 import UserPreviewCard from "../components/UserList/UserPreviewCard";
@@ -39,7 +38,6 @@ const Users = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <>
       <div className="user-list">
         <ul>
           {users
@@ -53,7 +51,6 @@ const Users = () => {
             : "No users found"}
         </ul>
       </div>
-    </>
   );
 };
 
