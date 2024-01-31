@@ -3,6 +3,7 @@ import Spinner from "../components/SharedComponents/Spinner";
 import "./users.css";
 import UserPreviewCard from "../components/UserList/UserPreviewCard";
 import UserPreview from "../../../shared-types/UserPreview";
+import { ErrorOutline } from "@mui/icons-material";
 
 const Users = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -19,7 +20,6 @@ const Users = () => {
         const userData: UserPreview[] = await response.json();
         setUsers(userData);
       } catch (error) {
-        console.error("Error fetching user data:", error);
         setError((error as Error).message);
       } finally {
         setLoading(false);
@@ -35,7 +35,15 @@ const Users = () => {
         <Spinner />
       </div>
     );
-  if (error) return <div>Error: {error}</div>;
+
+    if (error) {
+      return (
+        <div className="error-container">
+          <ErrorOutline fontSize="inherit" />
+          <div>{error}</div>
+        </div>
+      );
+    }
 
   return (
       <div className="user-list">
